@@ -86,10 +86,38 @@
     --tw-prose-pre-bg: transparent;
   }
 
+  .prose :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 1rem;
+  }
+
+  .prose :is(h1, h2, h3, h4, h5, h6) + p {
+    margin-top: 0;
+  }
+
   .prose pre {
     background-color: transparent !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  .prose p:has(img, em) {
+    border: 1px solid #cde9;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.25em 0;
+  }
+  .prose p:has(img, em) img {
+    margin: 0 auto;
+  }
+
+  .prose img + em {
+    display: flex;
+    justify-content: center;
+    font-style: normal;
+    opacity: 0.7;
+    background: #cde9;
+    padding: 0.2em 0;
+    border: 1px solid #cde9;
   }
 
   .prose :not(pre)>code {

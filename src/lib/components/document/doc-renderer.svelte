@@ -35,7 +35,7 @@
 
 {#if highlighter}
 	<div class="flex flex-col gap-6 sm:flex-row">
-		<div>
+		<div class="flex-grow">
 			<DocHeader {title} {description} />
 			{#key contentKey}
 				<DocContent {highlighter} {theme} {data} />

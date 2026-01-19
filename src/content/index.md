@@ -1,89 +1,67 @@
 ---
-title: Get Started
-description: Learn how to set up and start using our modern documentation template built with Svelte 5, MDSvex, and Tailwind CSS.
+title: 개요
+description: 사운드캣 B2B 홈페이지를 비롯하여 2024년부터 운용 중인 당사 맞춤 제작된 서비스들에 대한 내용을 인수인계합니다.
 ---
 
-# Getting Started
+# 개요
 
-Create beautiful, modern documentation for your project in minutes with our Svelte-powered documentation template.
+사운드캣 B2B 홈페이지는 현재 캣츠타워 2층 서버실[^1]에 있는 컴퓨터에서 서비스 되고 있습니다.
 
-## Prerequisites
 
-Before you begin, ensure you have:
-- Node.js 18+ installed
-- Git installed
-- A GitHub account
-- Basic familiarity with Markdown
+## 서버 컴퓨터
 
-## Quick Start
+### 서버 컴퓨터 스펙
 
-1. Go to [GitHub](https://github.com/code-gio/svelte-docs-starter)  click the green **"Use this template"** button at the top of this page
-2. Select **"Create a new repository"**
-3. Name your repository and choose its visibility
-4. Click **"Create repository from template"**
-5. Clone your new repository:
-   ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   ```
-6. Install dependencies:
-   ```bash
-   cd your-repo-name
-   npm install
-   ```
-7. Start the development server:
-   ```bash
-   npm run dev
-   ```
+- 운영체제: Linux (Ubuntu 24.04)
+- CPU: AMD Ryzen 5 3400G with Radeon Vega Graphics
+- RAM: 16GB
+- VGA: NVIDIA GeForece GTX 950
+- LAN: 1G
+- SSD: 128GB
+- HDD: 2TB + 1TB
 
-Your documentation site is now running at `http://localhost:5173`!
+### 서버 컴퓨터 구성
 
-## Core Features
+현재 서버 컴퓨터에는 Ubuntu 24.04가 설치되어 있으며, 세 개의 서비스가 [**Docker**](https://www.docker.com/)라고 하는 일종의 가상 머신에서 각각 구동되고 있습니다.
 
-Our template combines powerful tools to create an exceptional documentation experience:
+- 헬사넷 (https://helpsound.net)
+- 사운드캣 B2B (https://b2b.soundcat.com)
+- 캣츠렌탈 매니저 (https://manager.catsrent.com)
 
-- **Component Library**: Built on shadcn/ui for beautiful, accessible components
-- **Type Safety**: Full TypeScript support for reliable development
-- **Modern Stack**: Powered by Svelte 5, MDSvex, and TailwindCSS
-- **Customizable**: Easy theming and layout modifications
+각각의 서비스 홈페이지는 내용을 사용자의 컴퓨터에 보여주기 위하여 Apache2 + PHP + MYSQL 구성으로 세팅되어 있으며, 최종적으로 서버 컴퓨터의 Apache2를 통해 사용자에게 보여질 수 있도록 데이터를 보내주고 있습니다. 이에 대한 자세한 내용은 서버 관리를 참조하여 주시기 바랍니다.
 
-## Adding Content
+#### 헬사넷
 
-### Creating Pages
+헬사넷은 사운드캣 서비스센터에서 운영하는 홈페이지로, 사운드캣 제품 AS 접수 및 문의 사항에 대한 내용을 답변하고 처리하는 홈페이지입니다.
 
-1. Add new `.md` files in the `src/docs` directory
-2. Include frontmatter at the top of your markdown files:
-   ```markdown
-   ---
-   title: Your Page Title
-   description: A brief description of the page
-   ---
-   ```
-3. Write your content using Markdown and MDSvex features
+![헬사넷 팝업](/images/helsa-1.png)*헬사넷 팝업 화면*
 
-### Using Components
+![헬사넷 메인](/images/helsa-2.png)*헬사넷 메인 화면*
 
-Import and use Svelte components directly in your markdown:
+#### 사운드캣 B2B
 
-```markdown
-<script>
-  import { Alert } from '$lib/components/ui/alert';
-</script>
+사운드캣 B2B는 사운드캣 영업팀과 대리점 사이에 발주를 효율적으로 처리하고 관리하기 위한 홈페이지로, 제품 등록, 공급 마진 관리, 재고 확인, 상세페이지 다운로드 등 다양한 기능을 담당하고 있습니다.
 
-# My Page
+![사운드캣 B2B 메인](/images/b2b-1.png)*사운드캣 B2B 메인 화면*
 
-<Alert>
-  This is a custom component in markdown!
-</Alert>
-```
+#### 캣츠렌탈 매니저
 
-## Next Steps
+캣츠렌탈 매니저는 캣츠렌탈 매니저 상품을 관리하고 현재 렌탈 중인 상품에 대한 고객 관리 및 재고 관리를 효율적으로 처리하기 위한 홈페이지입니다.
 
-- Browse the [Examples](/docs/examples) to see what you can build
-- Learn about customization in our [Customization Guide](/docs/customize)
-- Check out our [Component Styling](/docs/styling/theme)
+![캣츠렌탈 매니저 로그인](/images/catsrent-1.png)*캣츠렌탈 매니저 로그인 화면*
 
-## Need Help?
+## 도메인
 
-- Browse our [documentation](/docs)
-- Report issues on [GitHub](https://github.com/code-gio/svelte-docs-starter/issues)
-- Check out the [examples](/docs/examples) for inspiration
+서버 컴퓨터는 공유기를 통한 포트포워딩 되어 공인IP를 통해 외부 접속을 허용하고 있습니다. 그리고 홈페이지 주소를 보다 쉽게 기억할 수 있도록 도메인이라고 하는 주소에 연결되어 있습니다. (soundcat.com, helpsound.net, catsrent.com 등)
+
+도메인은 각각 아래 업체를 통해 제공 받고 있으며, 도메인 관리가 필요할 경우 각각 홈페이지에서 관리할 수 있습니다.
+
+### 도메인 제공 업체
+
+- 가비아(https://www.gabia.com/): soundcat.com / helpsound.net
+- 아임웹(https://imweb.me/): catsrent.com
+
+> 로그인 계정에 대한 정보는 별도로 인수인계 된 내용을 참조하시기 바랍니다.
+
+
+[^1]: 서버실은 엘리베이터 측 문을 열고 왼쪽으로 꺾어서 검은색 문 너머에 있습니다.

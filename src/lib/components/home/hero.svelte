@@ -1,7 +1,6 @@
 <!-- DocHero.svelte -->
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
-	import { Badge } from '$lib/components/ui/badge';
 	import { ChevronRight, Clipboard, Check } from 'lucide-svelte';
 	import { siteConfig } from '$lib/config';
 	import { toast } from 'svelte-sonner';
@@ -29,20 +28,15 @@
 	<div class="relative mx-auto max-w-[85rem] px-4 pb-10 pt-24 sm:px-6 lg:px-8">
 		<!-- Version badge -->
 		<div class="flex justify-center">
-			<a
-				href={siteConfig.github}
-				class="inline-flex items-center gap-x-2 rounded-full border border-gray-200 bg-white p-1 ps-3 text-sm text-gray-800 transition hover:border-gray-300 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
+			<span
+				class="inline-flex items-center gap-x-2 rounded-full border border-gray-200 bg-white p-1 px-3 text-sm text-gray-800 transition hover:border-gray-300 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
 			>
-				Version {siteConfig.version} - Latest Release
-				<Badge variant="secondary" class="gap-x-2 rounded-full">
-					<span class="hidden sm:inline">View on GitHub</span>
-					<ChevronRight class="size-4" />
-				</Badge>
-			</a>
+				Version {siteConfig.version}
+		</span>
 		</div>
 
 		<!-- Title -->
-		<div class="mx-auto mt-5 max-w-2xl text-center">
+		<div class="mx-auto mt-5 max-w-3xl text-center">
 			<h1
 				class="block text-4xl font-bold text-gray-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
 			>
@@ -60,7 +54,7 @@
 		<!-- Action Buttons -->
 		<div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
 			<Button href="/docs" variant="default">
-				Get Started
+				시작하기
 				<ChevronRight class="size-4" />
 			</Button>
 
@@ -76,21 +70,6 @@
 					</span>
 				</Button>
 			{/if}
-		</div>
-
-		<!-- Quick Links -->
-		<div class="mt-5 flex flex-wrap items-center justify-center gap-2">
-			<span class="text-sm text-gray-600 dark:text-neutral-400">Quick links:</span>
-			{#each siteConfig.quickLinks as link}
-				<Button variant="link" href={link.href} class="h-auto p-1">
-					{link.title}
-					<ChevronRight class="size-4" />
-				</Button>
-
-				{#if link !== siteConfig.quickLinks[siteConfig.quickLinks.length - 1]}
-					<span class="text-gray-300 dark:text-neutral-600">•</span>
-				{/if}
-			{/each}
 		</div>
 	</div>
 </div>

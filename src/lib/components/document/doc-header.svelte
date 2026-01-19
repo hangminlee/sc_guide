@@ -13,12 +13,12 @@
 				.replace('/', ': ')}
 		</p>
 	{:else}
-		<p class="mb-2 text-sm font-semibold capitalize text-primary">Docs</p>
+		<p class="mb-2 text-sm font-semibold capitalize text-primary">문서</p>
 	{/if}
 	<h1 class="mb-2 block text-2xl font-bold sm:text-3xl">
 		{title}
 	</h1>
-	<p class="mt-2 text-gray-800 dark:text-neutral-400 sm:text-lg">
+	<p class="mt-2 text-gray-500 dark:text-neutral-400 sm:text-sm">
 		{description}
 	</p>
 </header>

@@ -39,7 +39,13 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@r4ai/remark-callout": "^0.6.2",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"flexsearch": "^0.7.43",
-		"mdsvex": "^0.12.3"
+		"mdsvex": "^0.12.3",
+		"rehype-raw": "^7.0.0",
+		"rehype-stringify": "^10.0.1",
+		"remark-footnotes": "2.0",
+		"remark-gfm": "^4.0.1"
 	}
 }

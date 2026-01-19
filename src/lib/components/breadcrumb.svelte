@@ -24,10 +24,10 @@
 			<Breadcrumb.Item>
 				<!-- Check if it's the last breadcrumb item to render as Page instead of Link -->
 				{#if i === breadcrumbs.length - 1}
-					<Breadcrumb.Page>{breadcrumb.name}</Breadcrumb.Page>
+					<Breadcrumb.Page>{decodeURIComponent(breadcrumb.name)}</Breadcrumb.Page>
 				{:else}
 					<Breadcrumb.Link href={breadcrumb.href} class="hidden md:block"
-						>{breadcrumb.name}</Breadcrumb.Link
+						>{decodeURIComponent(breadcrumb.name)}</Breadcrumb.Link
 					>
 				{/if}
 			</Breadcrumb.Item>
