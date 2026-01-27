@@ -38,7 +38,7 @@ export class TableOfContents {
             .map((heading) => {
                 const level = parseInt(heading.tagName.charAt(1));
                 const text = heading.textContent || '';
-                const id = heading.id || text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const id = heading.id || text.toLowerCase().replace(/[^a-z0-9가-힣ㄱ-ㅎㅏ-ㅣ]+/g, '-');
 
                 if (!heading.id) heading.id = id;
 

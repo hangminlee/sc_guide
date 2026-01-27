@@ -120,6 +120,11 @@
     border: 1px solid #cde9;
   }
 
+  .prose hr {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
   .prose :not(pre)>code {
     background-color: hsl(var(--muted));
     color: hsl(var(--foreground));

@@ -6,7 +6,7 @@
 	let toc = $state(TableOfContents.getInstance());
 </script>
 
-<div>
+<div style="margin-bottom: 1em">
 	<h5
 		id="docs-on-this-page-sidebar-label"
 		class="mb-3 text-sm font-semibold text-gray-800 dark:text-neutral-300"
