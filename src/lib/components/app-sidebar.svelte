@@ -7,7 +7,7 @@
 	import { docsNavigation } from '$lib/components/doc-navigation.svelte';
 	import { page } from '$app/state';
 	import SocialMedia from './social-media.svelte';
-	const path = $derived(page.url.pathname);
+	const path = $derived(decodeURIComponent(page.url.pathname));
 </script>
 
 <Sidebar.Root bind:ref {...restProps}>
@@ -47,7 +47,7 @@
 						{#if groupItem.items?.length}
 							<Sidebar.MenuSub>
 								{#each groupItem.items as item (item.title)}
-									<Sidebar.MenuSubItem>
+									<Sidebar.MenuSubItem level={item.href?.split('/').filter(Boolean).length}>
 										<Sidebar.MenuSubButton isActive={path === item.href}>
 											{#snippet child({ props })}
 												<a href={item.href} {...props}>{item.title}</a>

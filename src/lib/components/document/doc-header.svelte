@@ -10,7 +10,8 @@
 			{page.params.slug
 				.replace(/-/g, ' ')
 				.replace(/\b\w/g, (char) => char.toUpperCase())
-				.replace('/', ': ')}
+				.replace('/', ': ')
+				.replaceAll("/", " / ")}
 		</p>
 	{:else}
 		<p class="mb-2 text-sm font-semibold capitalize text-primary">문서</p>
