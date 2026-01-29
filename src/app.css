@@ -105,6 +105,7 @@
     border-radius: 8px;
     overflow: hidden;
     margin: 1.25em 0;
+    background: rgba(204, 221, 238, 0.243);
   }
   .prose p:has(img, em) img {
     margin: 0 auto;
@@ -115,9 +116,9 @@
     justify-content: center;
     font-style: normal;
     opacity: 0.7;
-    background: #cde9;
+    background: rgba(204, 221, 238, 0.521);
     padding: 0.2em 0;
-    border: 1px solid #cde9;
+    border-top: 1px solid #cde9;
   }
 
   .prose hr {
