@@ -11,7 +11,7 @@
 		id="docs-on-this-page-sidebar-label"
 		class="mb-3 text-sm font-semibold text-gray-800 dark:text-neutral-300"
 	>
-		On this page
+		이 페이지의 내용
 	</h5>
 	<ul>
 		{#each toc.headings as heading}

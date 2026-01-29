@@ -12,11 +12,11 @@
 <Dialog.Root bind:open={opened}>
 	<Dialog.Trigger class="fixed bottom-2 right-2 {buttonVariants({ variant: 'default' })}">
 		<AlignLeft />
-		On This Page
+		이 페이지의 내용
 	</Dialog.Trigger>
 	<Dialog.Content>
 		<Dialog.Header>
-			<Dialog.Title>On this page</Dialog.Title>
+			<Dialog.Title>이 페이지의 내용</Dialog.Title>
 		</Dialog.Header>
 		<ScrollArea class="h-80">
 			<ul>

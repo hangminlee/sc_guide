@@ -49,7 +49,7 @@
 >
 	<div class="flex items-center gap-2">
 		<SearchIcon class="h-4 w-4 text-muted-foreground" />
-		<p class="hidden text-sm text-muted-foreground sm:block">Search documentation</p>
+		<p class="hidden text-sm text-muted-foreground sm:block">문서 내 검색</p>
 		<kbd
 			class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100"
 		>
@@ -60,7 +60,7 @@
 
 <Command.Dialog bind:open>
 	<div class="relative">
-		<Command.Input bind:value={searchQuery} placeholder="Search documentation..." class="pl-10" />
+		<Command.Input bind:value={searchQuery} placeholder="문서 검색 중..." class="pl-10" />
 	</div>
 
 	<Command.List>
