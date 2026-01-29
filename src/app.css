@@ -86,6 +86,11 @@
     --tw-prose-pre-bg: transparent;
   }
 
+  .prose h1, .prose h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #0001;
+  }
+
   .prose :is(h1, h2, h3, h4, h5, h6) {
     margin-bottom: 1rem;
   }
@@ -104,8 +109,10 @@
     border: 1px solid #cde9;
     border-radius: 8px;
     overflow: hidden;
-    margin: 1.25em 0;
-    background: rgba(204, 221, 238, 0.243);
+    margin: 1.25em auto;
+    background: rgba(204, 221, 238, 0.16);
+    box-shadow: 0 0 2em #0002;
+    max-width: 90%;
   }
   .prose p:has(img, em) img {
     margin: 0 auto;
@@ -116,7 +123,7 @@
     justify-content: center;
     font-style: normal;
     opacity: 0.7;
-    background: rgba(204, 221, 238, 0.521);
+    background: rgba(204, 221, 238, 0.387);
     padding: 0.2em 0;
     border-top: 1px solid #cde9;
   }
