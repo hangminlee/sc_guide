@@ -111,7 +111,7 @@
     overflow: hidden;
     margin: 1.25em auto;
     background: rgba(204, 221, 238, 0.16);
-    box-shadow: 0 0 2em #0002;
+    box-shadow: 0 4px 1em #0001;
     max-width: 90%;
   }
   .prose p:has(img, em) img {
