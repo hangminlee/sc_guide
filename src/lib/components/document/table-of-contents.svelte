@@ -23,6 +23,7 @@
 					variant="link"
 					href="#{heading.id}"
 					class="font-base text-sm text-gray-800 dark:text-neutral-300 justify-start w-full"
+					title={heading.text}
 				>
 					{#if heading.level > 1}
 						<ChevronRight class="mt-[5px] size-3.5 shrink-0" />
