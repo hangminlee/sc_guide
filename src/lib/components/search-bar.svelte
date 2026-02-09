@@ -84,11 +84,11 @@
 	<Command.List>
 		{#if debouncedSearchQuery === ''}
 		<Command.Empty class="py-6 text-center text-sm">
-			Start typing to search documentation...
+			입력하여 문서를 검색하세요...
 		</Command.Empty>
 		{:else if searchResults.length === 0}
 			<Command.Empty class="py-6 text-center text-sm">
-				No results found for "{debouncedSearchQuery}"
+				"{debouncedSearchQuery}"에 대한 검색 결과가 없습니다.
 			</Command.Empty>
 		{:else if searchResults.length > 0}
 			<Command.Group heading="Documentation">
@@ -113,7 +113,7 @@
 			<Command.Group heading="Quick Links">
 				<Command.Item onSelect={() => handleResultClick('')}>
 					<BookOpen class="mr-2 h-4 w-4" />
-					<span>Browse All Documentation</span>
+					<span>모든 문서 보기</span>
 				</Command.Item>
 			</Command.Group>
 		{/if}
