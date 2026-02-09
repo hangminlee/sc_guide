@@ -105,16 +105,16 @@
     padding: 0 !important;
   }
 
-  .prose p:has(img, em) {
+  .prose p:has(img + em) {
     border: 1px solid #cde9;
     border-radius: 8px;
     overflow: hidden;
     margin: 1.25em auto;
     background: rgba(204, 221, 238, 0.16);
-    box-shadow: 0 4px 1em #0001;
+    box-shadow: 0 8px 1em -8px #0006;
     max-width: 90%;
   }
-  .prose p:has(img, em) img {
+  .prose p:has(img + em) img {
     margin: 0 auto;
   }
 
@@ -124,8 +124,9 @@
     font-style: normal;
     opacity: 0.7;
     background: rgba(204, 221, 238, 0.387);
-    padding: 0.2em 0;
+    padding: 0.2rem 0;
     border-top: 1px solid #cde9;
+    font-size: 0.9rem;
   }
 
   .prose hr {

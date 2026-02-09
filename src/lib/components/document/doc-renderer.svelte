@@ -36,10 +36,12 @@
 {#if highlighter}
 	<div class="flex flex-col gap-6 sm:flex-row">
 		<div class="flex-grow">
-			<DocHeader {title} {description} />
-			{#key contentKey}
-				<DocContent {highlighter} {theme} {data} />
-			{/key}
+			<div class="inner">
+				<DocHeader {title} {description} />
+				{#key contentKey}
+					<DocContent {highlighter} {theme} {data} />
+				{/key}
+			</div>
 		</div>
 		<div>
 			<div class="sticky top-20 flex w-72 flex-col gap-4">
@@ -120,5 +122,9 @@
 
 	:global(.dark .line:hover) {
 		background-color: #1f2937;
+	}
+	.inner {
+		max-width: 900px;
+		margin: 0 auto;
 	}
 </style>
