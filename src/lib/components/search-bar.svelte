@@ -10,14 +10,32 @@
 	let searchQuery = $state('');
 	let searchResults = $derived(docsSearch.searchResults);
 
-	$effect(() => {
+	let debouncedSearchQuery = $state('');
+	let debounceTimeout: number;
+
+	$effect(()=>{
 		if (searchQuery) {
-			docsSearch.search(searchQuery);
+			clearTimeout(debounceTimeout);
+			debounceTimeout = setTimeout(() => {
+				debouncedSearchQuery = searchQuery;
+			}, 300);
+		} else {
+			debouncedSearchQuery = '';
+		}
+
+		return () => {
+			clearTimeout(debounceTimeout);
+		};
+	});
+
+	$effect(() => {
+		if (debouncedSearchQuery) {
+			docsSearch.search(debouncedSearchQuery);
 		}
 	});
 
 	function handleResultClick(slug: string) {
-		searchQuery = '';
+		debouncedSearchQuery = '';
 		open = false;
 		docsSearch.clearSearch();
 		goto(`/docs/${slug}`);
@@ -64,13 +82,13 @@
 	</div>
 
 	<Command.List>
-		{#if searchQuery === ''}
-			<Command.Empty class="py-6 text-center text-sm">
-				Start typing to search documentation...
-			</Command.Empty>
+		{#if debouncedSearchQuery === ''}
+		<Command.Empty class="py-6 text-center text-sm">
+			Start typing to search documentation...
+		</Command.Empty>
 		{:else if searchResults.length === 0}
 			<Command.Empty class="py-6 text-center text-sm">
-				No results found for "{searchQuery}"
+				No results found for "{debouncedSearchQuery}"
 			</Command.Empty>
 		{:else if searchResults.length > 0}
 			<Command.Group heading="Documentation">
@@ -91,7 +109,7 @@
 			</Command.Group>
 		{/if}
 
-		{#if searchQuery === '' || searchResults.length > 0}
+		{#if debouncedSearchQuery === '' || searchResults.length > 0}
 			<Command.Group heading="Quick Links">
 				<Command.Item onSelect={() => handleResultClick('')}>
 					<BookOpen class="mr-2 h-4 w-4" />

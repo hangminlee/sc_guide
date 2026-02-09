@@ -31,8 +31,8 @@ class DocsSearch {
         this.index = new FlexSearch.Document({
             document: {
                 id: 'id',
-                index: ['title', 'content'],
-                store: ['title', 'slug']
+                index: ['title', 'description'],
+                store: ['title', 'description', 'slug']
             },
             tokenize: 'forward',
             context: true,
@@ -48,14 +48,15 @@ class DocsSearch {
         return DocsSearch.instance;
     }
 
-    public async addDocument(doc: DocFile, slug: string): Promise<void> {
+    public async addDocument(doc: DocFile, slug: string, content: string): Promise<void> {
         if (!doc.metadata || !doc.default) return;
 
-
+        const stripContent = stripMarkdown(content);
+        
         const searchDoc: SearchDocument = {
             id: slug,
             title: doc.metadata.title,
-            description: doc.metadata.description || '',
+            description: stripContent || '',
             content: '',
             slug: slug
         };
@@ -109,6 +110,7 @@ class DocsSearch {
 
     public async initializeSearchIndex(): Promise<void> {
         const modules = import.meta.glob(['/src/content/**/*.md', '/src/content/**/*.svx'], { eager: true });
+        const modulesRaw = import.meta.glob(['/src/content/**/*.md', '/src/content/**/*.svx'], { eager: true, as: 'raw' });
 
         for (const [path, module] of Object.entries(modules)) {
             try {
@@ -117,7 +119,7 @@ class DocsSearch {
                     .replace('/src/content/', '')
                     .replace(/\.(md|svx)$/, '')
                     .replace(/\/index$/, '');
-                await this.addDocument(doc, slug);
+                await this.addDocument(doc, slug, modulesRaw[path]);
             } catch (e) {
                 console.error(`Error indexing ${path}:`, e);
             }
@@ -131,3 +133,18 @@ class DocsSearch {
 }
 
 export const docsSearch = DocsSearch.getInstance();
+
+function stripMarkdown(md: string): string {
+    return md
+        // code block 제거
+        .replace(/```[\s\S]*?```/g, ' ')
+        // 이미지 제거
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+        // 링크 텍스트만 남김
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+        // 마크다운 기호 제거
+        .replace(/[#>*_\-|]/g, ' ')
+        // 공백 정리
+        .replace(/\s+/g, ' ')
+        .trim();
+}
