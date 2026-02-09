@@ -78,7 +78,7 @@
 
 <Command.Dialog bind:open>
 	<div class="relative">
-		<Command.Input bind:value={searchQuery} placeholder="문서 검색 중..." class="pl-10" />
+		<Command.Input bind:value={searchQuery} placeholder="문서 검색..." class="pl-10" />
 	</div>
 
 	<Command.List>
