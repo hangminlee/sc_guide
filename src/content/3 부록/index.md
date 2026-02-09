@@ -1,5 +1,5 @@
 ---
-title: 부록
+title: 들어가며
 description: 본 매뉴얼의 부록입니다.
 ---
 
