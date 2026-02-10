@@ -53,9 +53,23 @@ class DocsNavigation {
         const folderMap = new Map<string, NavItem>();
         const allPaths = items.map(i => i.href);
         // Sort items so parent paths come before children
-        items.sort((a, b) =>
-            (a.href?.split('/').length ?? 0) - (b.href?.split('/').length ?? 0)
-        );
+        console.log(items);
+        items.sort((a, b) => {
+            const aParts = a.href?.split('/').filter(Boolean) ?? [];
+            const bParts = b.href?.split('/').filter(Boolean) ?? [];
+        
+            const minLen = Math.min(aParts.length, bParts.length);
+        
+            for (let i = 0; i < minLen; i++) {
+                if (aParts[i] !== bParts[i]) {
+                    return aParts[i].localeCompare(bParts[i], 'ko');
+                }
+            }
+        
+            // 여기까지 왔으면 공통 경로
+            // 짧은 쪽(부모 디렉터리)이 먼저
+            return aParts.length - bParts.length;
+        });
 
         items.forEach(item => {
             if (!item.href) {
