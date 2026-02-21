@@ -8,7 +8,7 @@
 	let hasH1 = $derived(toc.headings.some(h => h.level === 1));
 </script>
 
-<div style="margin-bottom: 1em">
+<div class="mb-4">
 	<h5
 		id="docs-on-this-page-sidebar-label"
 		class="mb-3 text-sm font-semibold text-gray-800 dark:text-neutral-300"

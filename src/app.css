@@ -88,7 +88,7 @@
 
   .prose h1, .prose h2 {
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #0001;
+    border-bottom: 1px solid rgb(64 64 64 / var(--tw-border-opacity, 1));
   }
 
   .prose :is(h1, h2, h3, h4, h5, h6) {
