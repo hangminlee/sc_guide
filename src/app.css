@@ -120,6 +120,7 @@
   }
   .prose p:has(img + em) img {
     margin: 0 auto;
+    max-height: max(90vh, 600px);
   }
 
   .prose img + em {
